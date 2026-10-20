@@ -60,6 +60,17 @@ export default (options: JuryRefereeLedsOptions) => {
 
     return (jury: Jury) => {
         jury.on('refereeDecision', ({ decision, referee }) => {
+            // `hidden` is normally shown as green (see referee-rgb-leds.ts),
+            // but this legacy adapter only has red/white LEDs per referee.
+            // Defensive fallback: keep both LEDs off until the decision is
+            // revealed. In practice all jury boxes use the RGB adapter.
+            if (decision === 'hidden') {
+                decisions.forEach((_decision) => {
+                    leds[refereeDecisionProperty({ decision: _decision, referee })].off();
+                });
+                return;
+            }
+
             const ledProperty = refereeDecisionProperty({ decision, referee });
             leds[ledProperty].on();
 

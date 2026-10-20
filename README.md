@@ -77,6 +77,10 @@ The strings `bad`, `good`, and `hidden`.
 
 The numbers `1`, `2`, `3`, `4`, and `5`.
 
+#### RefereeDecisionState
+
+The strings `bad`, `good`, and `hidden`. `hidden` means owlcms has received the referee's decision but it must not be revealed yet (e.g. during a panel vote); the jury panel shows it as green.
+
 #### RefereeNumber
 
 The numbers `1`, `2`, and `3`.
@@ -174,8 +178,8 @@ The model has been initialized.
 A referee decision has been made.
 
 * `data`: Data about the decision.
-    * `decision` (`Decision`): The referee's decision.
-    * `number` (`RefereeNumber`): The number indicating which referee made the decision.
+    * `decision` (`RefereeDecisionState`): The referee's decision, or `hidden` if it must not be revealed yet.
+    * `referee` (`RefereeNumber`): The number indicating which referee made the decision.
 
 ##### resetRefereeDecisions
 
