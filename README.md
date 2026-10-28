@@ -145,20 +145,25 @@ Provides functionality for starting and stopping the competition, including summ
 
 ##### referee-leds(options)
 
-Provides functionality for real-time referee decision LEDs.
+Provides functionality for real-time referee and jury decision LEDs (red, white, green).
 
 * `options`: Configuration options for the LEDs.
     * `board` (optional; `Board`): Which Johnny-Five board the LEDs are connected to.
     * `referee1BadLiftLed` (`number | string`): Which pin the referee 1 bad lift LED is connected to.
     * `referee1GoodLiftLed` (`number | string`): Which pin the referee 1 good lift LED is connected to.
+    * `referee1HiddenLiftLed` (optional; `number | string`): Which pin the referee 1 hidden decision LED (green) is connected to.
     * `referee2BadLiftLed` (`number | string`): Which pin the referee 2 bad lift LED is connected to.
     * `referee2GoodLiftLed` (`number | string`): Which pin the referee 2 good lift LED is connected to.
+    * `referee2HiddenLiftLed` (optional; `number | string`): Which pin the referee 2 hidden decision LED (green) is connected to.
     * `referee3BadLiftLed` (`number | string`): Which pin the referee 3 bad lift LED is connected to.
     * `referee3GoodLiftLed` (`number | string`): Which pin the referee 3 good lift LED is connected to.
+    * `referee3HiddenLiftLed` (optional; `number | string`): Which pin the referee 3 hidden decision LED (green) is connected to.
+
+*NOTE: Without a hidden decision LED, a `hidden` decision turns off the referee's LEDs until the decision is revealed.*
 
 ##### referee-rgb-leds(options)
 
-Provides functionality for real-time referee decision RGB LEDs.
+Provides functionality for real-time referee and jury decision RGB LEDs (red, white, green).
 
 * `options`: Configuration options for the RGB LEDs.
     * `anode` (optional; `boolean`): Whether the RGB LEDs are common anode.

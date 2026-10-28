@@ -24,9 +24,9 @@ export interface JuryRefereeRgbLedsOptions {
 type RefereePinsProperty = keyof Omit<JuryRefereeRgbLedsOptions, 'anode' | 'board'>;
 
 const refereeDecisionColor: Record<RefereeDecisionState, Color> = {
-    hidden: 'green',
-    good: 'white',
     bad: 'red',
+    good: 'white',
+    hidden: 'green',
 };
 
 export default (options: JuryRefereeRgbLedsOptions) => {

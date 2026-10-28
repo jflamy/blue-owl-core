@@ -7,13 +7,13 @@ import Model from '@lib/model/index';
 
 export type Decision = 'bad' | 'good';
 
-// A referee decision as received from owlcms. `hidden` means that the
-// decision has been received but must not be revealed yet.
-export type RefereeDecisionState = Decision | 'hidden';
-
 export interface RefereeDecisionEvent {
     decision: Decision;
 }
+
+// A referee decision as received from owlcms. `hidden` means that the
+// decision has been received but must not be revealed yet.
+export type RefereeDecisionState = Decision | 'hidden';
 
 interface RefereeEvents extends ModelEvents {
     decisionConfirmed: (data: RefereeDecisionEvent) => void;
